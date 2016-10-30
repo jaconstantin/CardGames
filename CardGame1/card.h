@@ -12,72 +12,62 @@ enum cardNum_t{ace,two,three,four,five,six,seven,eight,nine,ten,jack,queen,king}
 class Card {
 	cardSuit_t suit;
 	cardNum_t num;
+
+	static const int valueArray[13];
+	static const string suitArray[4];
+	static const string numArray[13];
+
 public:
-	Card(cardSuit_t inSuit = clover, cardNum_t inNum = three):suit(inSuit),num(inNum){}
+	Card(cardSuit_t inSuit = clover, cardNum_t inNum = three):suit(inSuit),num(inNum){}  //constructor using suit and num
 	string getCardString();
+	int getValue();
 };
 
 
 
-string Card::getCardString() {
-	string tmpStr1, tmpStr2;
+class CardDeck {
+	Card deck[52];
+	int size;
+public:
+	CardDeck();
+	void show();
+	void shuffle();		 //https://www.uow.edu.au/~lukes/TEXTBOOK/notes-cpp/misc/random-shuffle.html
+	Card draw();
+	int getSize() { return size; }
+};
 
-	switch (suit) {
-		case clover:
-			tmpStr1 = "C";
-			break;
-		case spade:
-			tmpStr1 = "S";
-			break;
-		case heart:
-			tmpStr1 = "H";
-			break;
-		default:
-			tmpStr1 = "D";
-			break;
-	}
 
-	switch (num) {
-		case ace:
-			tmpStr2 = "01";
-			break;
-		case two:
-			tmpStr2 = "02";
-			break;
-		case three:
-			tmpStr2 = "03";
-			break;
-		case four:
-			tmpStr2 = "04";
-			break;
-		case five:
-			tmpStr2 = "05";
-			break;
-		case six:
-			tmpStr2 = "06";
-			break;
-		case seven:
-			tmpStr2 = "07";
-			break;
-		case eight:
-			tmpStr2 = "08";
-			break;
-		case nine:
-			tmpStr2 = "09";
-			break;
-		case ten:
-			tmpStr2 = "10";
-			break;
-		case jack:
-			tmpStr2 = "jk";
-			break;
-		case queen:
-			tmpStr2 = "qn";
-			break;
-		default:
-			tmpStr2 = "kg";
-			break;
-	}
-	
-	return tmpStr1 + tmpStr2;
-}
+class CardHand {
+	Card hand[3];
+	int size;
+	int value;
+public:
+	CardHand();
+	void deal(CardDeck*);
+	void hit(CardDeck*);
+	void show();
+	void peek();
+	int getValue();
+};
+
+
+
+
+class Game {
+	CardHand player1;
+	CardHand player2;
+	int money1;
+	int money2;
+	CardDeck *deck;
+
+public:
+	Game();
+	~Game();
+
+	void deal();
+	void launch();
+
+	void winDeal();
+	void loseDeal();
+	void tieDeal();
+};
