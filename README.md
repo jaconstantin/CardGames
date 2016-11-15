@@ -1,7 +1,7 @@
 # CardGames
 C++ card games developed with MSVC
 
-Hi guys, this repository is dedicated for developing various card games using Microsoft Visual Studio. I am uploading only the source files for now to save space. My goal is to publish these apps once they are release stage. As of now, there is only one game in the repository generically named CardGame1.cpp.
+Hi guys, this repository is dedicated for developing various card games using Microsoft Visual Studio. I am uploading only the source files for now to save space. My goal is to publish these apps once they are release stage. As of now, there are two games in the repository. I will be shooting to add graphics, AI, and possibly multi player modes through the network in the future.
 
 -----------------------
 CardGame1
