@@ -9,9 +9,13 @@
 
 #include <stdio.h>
 #include <tchar.h>
-#include <iostream>
-#include <string>
-#include <vector>
+
 
 
 // TODO: reference additional headers your program requires here
+#include <iostream>
+#include <string>
+#include <array>
+#include <algorithm>
+
+#include "card.h"
